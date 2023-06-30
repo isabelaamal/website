@@ -19,15 +19,19 @@ let question1 = {
     alternatives: ['dog', 'cat', 'bird', 'fish'],
     correctAnswer: 3
   };
-
-  let questions = [question1, question2, question3, question4];
+  let question5 = {
+    title: 'lagarto',
+    alternatives: ['dog', 'cat', 'bird', 'fish', 'lizard'],
+    correctAnswer: 4
+  };
+  let questions = [question1, question2, question3, question4, question5];
 
   let count = 0;
 
   var dice = {
-    side:4,
+    side:5,
   roll: function(){
-    var randomnumber = Math.floor (math.random() *this.side);
+    var randomnumber = Math.floor (Math.random() *this.side);
     return randomnumber;
   }
 }
@@ -35,6 +39,7 @@ let question1 = {
 
   // modified code
   function showQuestion() {
+    count = dice.roll();
     let q = questions[count];
     // existing code
     let titleDiv = document.getElementById('title');
@@ -53,10 +58,10 @@ let question1 = {
       }, {once: true});
       
     });
-    count = count + 1;
-    if (count == 4) {
-      count = 0;
-    }
+    // count = count + 1;
+    // if (count == 4) {
+    //   count = 0;
+    // }
   }
   // call the function
   showQuestion ()
